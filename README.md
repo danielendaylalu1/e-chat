@@ -3,5 +3,7 @@ This is a chat web app built using React and Firebase. It allows users to create
 
 ## Features
 User authentication using Firebase
+
 Real-time chat using Firebase
+
 Responsive design using React
