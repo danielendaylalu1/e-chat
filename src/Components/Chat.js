@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { auth, db } from "../firebase-config";
 import {
   collection,
@@ -14,6 +14,7 @@ function Chat() {
   const [messages, setMessages] = useState([]);
   const [text, setText] = useState("");
   const messagesRef = collection(db, "messages");
+
   useEffect(() => {
     const queryMessage = query(messagesRef, orderBy("createdAt"));
     const unsubscribe = onSnapshot(queryMessage, (snap) => {
@@ -36,6 +37,7 @@ function Chat() {
       createdAt: serverTimestamp(),
       name: auth.currentUser.displayName,
       profilePic: auth.currentUser.photoURL,
+      ids: auth.currentUser.uid,
     });
     setText("");
   };
@@ -46,7 +48,7 @@ function Chat() {
       </div>
       <div className="messages">
         {messages.map((message) => {
-          console.log(message);
+          // console.log(message);
           return <Room message={message} key={message.id} />;
         })}
       </div>

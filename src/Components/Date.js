@@ -1,20 +1,20 @@
 import React from "react";
 
-const Date = ({ time }) => {
+const Date = ({ message }) => {
   return (
     <div className="date">
       <p>
-        {new Date(time).toLocaleString("en-US", {
+        {new Date(message.createdAt.seconds * 1000).toLocaleString("en-US", {
           month: "short",
         })}
       </p>
       <p>
-        {new Date(time).toLocaleString("en-US", {
+        {new Date(message.createdAt.seconds * 1000).toLocaleString("en-US", {
           weekday: "short",
         })}
       </p>
-      <p>{new Date(time).getHours()}:</p>
-      <p>{new Date(time).getMinutes()}</p>
+      <p>{new Date(message.createdAt.seconds * 1000).getHours()}:</p>
+      <p>{new Date(message.createdAt.seconds * 1000).getMinutes()}</p>
     </div>
   );
 };
