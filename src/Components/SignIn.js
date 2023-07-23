@@ -11,14 +11,13 @@ function SignIn({ setIsAuth }) {
       const user = await signInWithPopup(auth, provider);
       cookies.set("auth-token", user.user.refreshToken);
       setIsAuth(true);
-      //   console.log(user);
     } catch (err) {
       console.log(err);
       return;
     }
   };
   return (
-    <div>
+    <div className="auth">
       <button onClick={signInHandler}>Sign In With Google</button>
     </div>
   );

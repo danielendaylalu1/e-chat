@@ -8,6 +8,7 @@ import {
   orderBy,
   serverTimestamp,
 } from "firebase/firestore";
+import Room from "./Room";
 
 function Chat() {
   const [messages, setMessages] = useState([]);
@@ -39,15 +40,14 @@ function Chat() {
     setText("");
   };
   return (
-    <div>
-      {messages.map((message) => {
-        return (
-          <div key={message.id}>
-            <h1>{message.text}</h1>
-          </div>
-        );
-      })}
-      <form onSubmit={messageHandler}>
+    <div className="chat">
+      <button className="scroll">></button>
+      <div className="messages">
+        {messages.map((message) => {
+          return <Room message={message} />;
+        })}
+      </div>
+      <form onSubmit={messageHandler} className="form">
         <input
           value={text}
           onChange={(e) => {

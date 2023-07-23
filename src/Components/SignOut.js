@@ -12,7 +12,7 @@ function SignOut({ setIsAuth }) {
     setIsAuth(false);
   };
   return (
-    <div>
+    <div className="auth">
       <button onClick={signOutHandler}>SignOut</button>
     </div>
   );
