@@ -15,10 +15,7 @@ function App() {
       {isAuth ? (
         <div>
           <SignOut setIsAuth={setIsAuth} />
-          <div className="main">
-            <Users />
-            <Chat />
-          </div>
+          <Chat />
         </div>
       ) : (
         <>

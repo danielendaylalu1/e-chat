@@ -9,6 +9,7 @@ import {
   serverTimestamp,
 } from "firebase/firestore";
 import Room from "./Room";
+import Users from "./Users";
 
 function Chat() {
   const [messages, setMessages] = useState([]);
@@ -41,7 +42,7 @@ function Chat() {
   };
   return (
     <div className="chat">
-      <button className="scroll">></button>
+      <Users messages={messages} />
       <div className="messages">
         {messages.map((message) => {
           return <Room message={message} />;

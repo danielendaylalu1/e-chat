@@ -7,8 +7,24 @@ function Room({ message }) {
       <div className="convo">
         <h2 className="name">{message.name}</h2>
         <h1 className="text">{message.text}</h1>
+        <div className="date">
+          <p>
+            {new Date(message.createdAt.seconds * 1000).toLocaleString(
+              "en-US",
+              { month: "short" }
+            )}
+          </p>
+          <p>
+            {new Date(message.createdAt.seconds * 1000).toLocaleString(
+              "en-US",
+              { weekday: "short" }
+            )}
+          </p>
+          <p>{new Date(message.createdAt.seconds * 1000).getHours()}:</p>
+          <p>{new Date(message.createdAt.seconds * 1000).getMinutes()}</p>
+        </div>
       </div>
-      {/* <p>{message.createdAt}</p> */}
+      {console.log(new Date(message.createdAt.seconds * 1000))}
     </div>
   );
 }

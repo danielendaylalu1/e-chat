@@ -1,9 +1,7 @@
-import React from "react";
-
-function Users() {
+function Users({ messages }) {
   return (
     <div className="users">
-      <h2 className="usersHeader">Users</h2>
+      <h3 className="users-header">Wellcome to e-chat</h3>
     </div>
   );
 }
