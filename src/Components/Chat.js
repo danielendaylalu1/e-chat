@@ -9,7 +9,6 @@ import {
   serverTimestamp,
 } from "firebase/firestore";
 import Room from "./Room";
-import Users from "./Users";
 
 function Chat() {
   const [messages, setMessages] = useState([]);
@@ -42,10 +41,13 @@ function Chat() {
   };
   return (
     <div className="chat">
-      <Users messages={messages} />
+      <div className="users">
+        <h3 className="users-header">Wellcome to e-chat</h3>
+      </div>
       <div className="messages">
         {messages.map((message) => {
-          return <Room message={message} />;
+          console.log(message);
+          return <Room message={message} key={message.id} />;
         })}
       </div>
       <form onSubmit={messageHandler} className="form">

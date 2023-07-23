@@ -1,30 +1,20 @@
-import React from "react";
+import Date from "./Date";
 
 function Room({ message }) {
+  const now = Date.now();
   return (
     <div key={message.id} className="room">
       <img src={message.profilePic} alt="profile" />
       <div className="convo">
         <h2 className="name">{message.name}</h2>
         <h1 className="text">{message.text}</h1>
-        <div className="date">
-          <p>
-            {new Date(message.createdAt.seconds * 1000).toLocaleString(
-              "en-US",
-              { month: "short" }
-            )}
-          </p>
-          <p>
-            {new Date(message.createdAt.seconds * 1000).toLocaleString(
-              "en-US",
-              { weekday: "short" }
-            )}
-          </p>
-          <p>{new Date(message.createdAt.seconds * 1000).getHours()}:</p>
-          <p>{new Date(message.createdAt.seconds * 1000).getMinutes()}</p>
-        </div>
+
+        {message.createdAt ? (
+          <Date time={message.createdAt.seconds * 1000} />
+        ) : (
+          <Date time={now} />
+        )}
       </div>
-      {console.log(new Date(message.createdAt.seconds * 1000))}
     </div>
   );
 }

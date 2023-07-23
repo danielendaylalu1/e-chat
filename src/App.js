@@ -3,7 +3,6 @@ import { useState } from "react";
 import SignOut from "./Components/SignOut";
 import Cookies from "universal-cookie";
 import Chat from "./Components/Chat";
-import Users from "./Components/Users";
 
 const cookies = new Cookies();
 
